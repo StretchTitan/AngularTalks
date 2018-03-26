@@ -1,0 +1,15 @@
+<div class="row" style="margin-top: 20px">
+  <a routerLink="{{key}}/medications" routerLinkActive="active" class="list-group-item clearfix">
+    <div class="pull-left col-xs-8">
+      <h4 class="list-group-item-heading">
+          {{ patient.name }}
+      </h4>
+      <p class="list-group-item-text">
+        <b>DOB:</b> {{ patient.dob | date: 'MM/dd/yyyy' }}
+      </p>
+    </div>
+    <div class="pull-left col-xs-4">
+      <img [src]="patient.imagePath" [alt]="patient.name" class="img-responsive pull-right" style="max-height: 50px">
+    </div>
+  </a>
+</div>

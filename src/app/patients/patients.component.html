@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div class="row col-xs-12" style="height: calc(100% - 72px)">
+  <div class="row col-xs-4 patient-list-container">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1" style="padding: 20px 0 0;">
+        <button class="btn btn-success">New Patient</button>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+          <app-patient-item *ngFor="let patient of patients; let key = index" [patient]="patient" [key]="key"></app-patient-item>
+        </div>
+    </div>
+  </div>
+  <div class="row col-xs-8">
+    <router-outlet></router-outlet>
+  </div>
+</div>
