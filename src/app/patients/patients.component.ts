@@ -17,9 +17,21 @@ export class PatientsComponent implements OnInit {
     imagePath: 'https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png'
   }];
 
+  showNewPatientForm = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addPatient(newPatient) {
+    this.patients.push(newPatient);
+    this.showNewPatientForm = false;
+  }
+
+  toggleNewPatientForm() {
+    this.showNewPatientForm = !this.showNewPatientForm;
+    console.log(this.showNewPatientForm);
   }
 
 }

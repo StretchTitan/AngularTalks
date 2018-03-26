@@ -13,6 +13,7 @@ import { MedicationsComponent } from './medications/medications.component';
 import { PatientItemComponent } from './patients/patient-item/patient-item.component';
 import { HeaderComponent } from './header/header.component';
 import { MedicationItemComponent } from './medications/medication-item/medication-item.component';
+import { NewPatientComponent } from './patients/new-patient/new-patient.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MedicationItemComponent } from './medications/medication-item/medicatio
     MedicationsComponent,
     PatientItemComponent,
     HeaderComponent,
-    MedicationItemComponent
+    MedicationItemComponent,
+    NewPatientComponent
   ],
   imports: [
     BrowserModule,
