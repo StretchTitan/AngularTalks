@@ -1,3 +1,4 @@
+import { PatientsService } from './patients/patients.service';
 import { AuthService } from './shared/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -32,7 +33,8 @@ import { MedicationItemComponent } from './medications/medication-item/medicatio
   ],
   providers: [
     HttpClientModule,
-    AuthService
+    AuthService,
+    PatientsService
   ],
   bootstrap: [AppComponent]
 })

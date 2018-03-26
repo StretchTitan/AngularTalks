@@ -1,3 +1,4 @@
+import { PatientsService } from './patients.service';
 import { Component, OnInit } from '@angular/core';
 import { Patient } from './patient-item/patient.model';
 
@@ -7,19 +8,12 @@ import { Patient } from './patient-item/patient.model';
   styleUrls: ['./patients.component.css']
 })
 export class PatientsComponent implements OnInit {
-  patients: Patient[] = [{
-    name: 'James Bond',
-    dob: '1975-11-05T00:00:00Z',
-    imagePath: 'https://fysheroes.files.wordpress.com/2011/04/bond.jpg'
-  }, {
-    name: 'Michael Scott',
-    dob: '1985-07-02T00:00:00Z',
-    imagePath: 'https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png'
-  }];
+  patients: Patient[];
 
-  constructor() { }
+  constructor(private ps: PatientsService) { }
 
   ngOnInit() {
+    this.patients = this.ps.getPatients();
   }
 
 }
