@@ -10,7 +10,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     firebase.initializeApp({
       apiKey: 'AIzaSyB0xIPPwrEVFsukx-cazf3EWcSsjDYYyuc',
-      authDomain: 'falcon-angular.firebaseapp.com'
+      authDomain: 'falcon-angular.firebaseapp.com',
+      databaseURL: 'https://falcon-angular.firebaseio.com/',
+      storageBucket: 'gs://falcon-angular.appspot.com'
     });
   }
 }
