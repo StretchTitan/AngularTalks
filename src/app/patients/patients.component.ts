@@ -1,37 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { PatientsService } from './patients.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Patient } from './patient-item/patient.model';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-patients',
   templateUrl: './patients.component.html',
   styleUrls: ['./patients.component.css']
 })
-export class PatientsComponent implements OnInit {
-  patients: Patient[] = [{
-    name: 'James Bond',
-    dob: '1975-11-05T00:00:00Z',
-    imagePath: 'https://fysheroes.files.wordpress.com/2011/04/bond.jpg'
-  }, {
-    name: 'Michael Scott',
-    dob: '1985-07-02T00:00:00Z',
-    imagePath: 'https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png'
-  }];
+export class PatientsComponent implements OnInit, OnDestroy {
+  patients: Patient[];
+  patientsSubscription: Subscription;
 
   showNewPatientForm = false;
 
-  constructor() { }
+  constructor(private ps: PatientsService) { }
 
   ngOnInit() {
+    this.patients = this.ps.getPatients();
+    this.patientsSubscription = this.ps.patientsUpdated.subscribe((patients: Patient[]) => this.patients = patients);
   }
 
-  addPatient(newPatient) {
-    this.patients.push(newPatient);
-    this.showNewPatientForm = false;
+  ngOnDestroy() {
+    this.patientsSubscription.unsubscribe();
   }
-
-  toggleNewPatientForm() {
-    this.showNewPatientForm = !this.showNewPatientForm;
-    console.log(this.showNewPatientForm);
-  }
-
 }

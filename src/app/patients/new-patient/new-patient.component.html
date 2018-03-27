@@ -13,7 +13,8 @@
           <label for="imagePath">Image:</label>
           <input type="text" class="form-control" id="imagePath" name="imagePath" [(ngModel)]="newPatient.imagePath">
         </div>
-        <button class="btn btn-primary" (click)="submitNewPatient()">Submit</button>
+        <button class="btn btn-default" routerLink="/patients">Cancel</button>
+        <button class="btn btn-primary" (click)="addPatient()">Submit</button>
       </form>
   </div>
 </div>

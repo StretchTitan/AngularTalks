@@ -1,3 +1,4 @@
+import { MedicationService } from './medications/medication.service';
 import { AuthService } from './shared/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,7 @@ import { PatientItemComponent } from './patients/patient-item/patient-item.compo
 import { HeaderComponent } from './header/header.component';
 import { MedicationItemComponent } from './medications/medication-item/medication-item.component';
 import { NewPatientComponent } from './patients/new-patient/new-patient.component';
+import { PatientsService } from './patients/patients.service';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { NewPatientComponent } from './patients/new-patient/new-patient.componen
   ],
   providers: [
     HttpClientModule,
-    AuthService
+    AuthService,
+    PatientsService,
+    MedicationService
   ],
   bootstrap: [AppComponent]
 })

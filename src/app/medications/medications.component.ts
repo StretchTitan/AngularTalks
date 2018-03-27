@@ -1,3 +1,4 @@
+import { MedicationService } from './medication.service';
 import { Component, OnInit } from '@angular/core';
 import { Medication } from './medication.model';
 
@@ -7,31 +8,12 @@ import { Medication } from './medication.model';
   styleUrls: ['./medications.component.css']
 })
 export class MedicationsComponent implements OnInit {
-  medications: Medication[] = [{
-    name: 'Tylenol',
-    dosage: '200mg',
-    frequency: 'Twice a Day',
-    rxPhysician: 'Dr. Clark Griswold'
-  }, {
-    name: 'Whiskey',
-    dosage: '3 shots',
-    frequency: 'Once a Day',
-    rxPhysician: 'Dr. Clark Griswold'
-  }, {
-    name: 'Coffee',
-    dosage: '1 cup',
-    frequency: 'Twice a Day',
-    rxPhysician: 'Dr. Clark Griswold'
-  }, {
-    name: 'Vitamins',
-    dosage: '1 tablet',
-    frequency: 'Once a Day',
-    rxPhysician: 'Dr. Clark Griswold'
-  }];
+  medications: Medication[];
 
-  constructor() { }
+  constructor(private ms: MedicationService) { }
 
   ngOnInit() {
+    this.medications = this.ms.getMedications();
   }
 
 }

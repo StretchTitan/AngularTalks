@@ -1,5 +1,6 @@
+import { PatientsService } from './../patients.service';
 import { Patient } from './../patient-item/patient.model';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-new-patient',
@@ -7,19 +8,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./new-patient.component.css']
 })
 export class NewPatientComponent implements OnInit {
-  @Output() newPatientSubmitted = new EventEmitter<Patient>();
   emptyPatient: Patient = { name: '', dob: '', imagePath: '' };
   newPatient: Patient = this.emptyPatient;
 
-
-  constructor() { }
+  constructor(private ps: PatientsService) { }
 
   ngOnInit() {
   }
 
-  submitNewPatient() {
-    this.newPatientSubmitted.emit(this.newPatient);
-    this.newPatient = { name: '', dob: '', imagePath: '' };
+  addPatient() {
+    this.ps.addPatient(this.newPatient);
   }
 
   // https://pbs.twimg.com/media/C_g1pYEUwAENkrJ.jpg
